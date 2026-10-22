@@ -1,54 +1,14 @@
-# AI Workflow Log
-Codex session: October 15, 2026, starting 7:00 AM.
-Entries reconstructed from the exported session transcript on [today's date].
-Prompts were drafted with help from Claude before the session; Claude also
-wrote a reference script I used to check Codex's results.
-
-## Prompt 1 – October 15, 2026, 7:00 AM session
-**Prompt:** Load AmesHousing.csv and report rows, columns, data types, and missing values for SalePrice, Gr Liv Area, and Neighborhood. Don't create any files yet.
-**Purpose:** Check the data before creating any files.
-**Codex produced:** [row/column counts it reported]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [e.g., confirmed 2,930 rows]
-
-## Prompt 2 – October 15, 2026, 7:00 AM session
-**Prompt:** Create analysis/analysis.py; remove houses over 4,000 sq ft; print rows removed and remaining.
-**Purpose:** Remove the dataset author's recommended outliers.
-**Codex produced:** analysis/analysis.py; [rows removed]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [ ]
-
-## Prompt 3 – October 15, 2026, 7:00 AM session
-**Prompt:** Extend the script with a regression of SalePrice on Gr Liv Area; print slope, intercept, R²; add residuals.
-**Purpose:** One predictor so each residual means "above or below what size predicts."
-**Codex produced:** [slope, R²]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [ ]
-
-## Prompt 4 – October 15, 2026, 7:00 AM session
-**Prompt:** Neighborhood table (sales, median price, mean residual), excluding neighborhoods under 20 sales, sorted, saved as neighborhood_summary.csv.
-**Purpose:** Answer the question directly; small neighborhoods are too noisy.
-**Codex produced:** neighborhood_summary.csv; [excluded neighborhoods]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [ ]
-
-## Prompt 5 – October 15, 2026, 7:00 AM session
-**Prompt:** Horizontal bar chart of mean residual by neighborhood, zero line, labels, saved as neighborhood_residuals.png.
-**Purpose:** Show over- and under-performers at a glance.
-**Codex produced:** neighborhood_residuals.png
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [chart order matches table?]
-
-## Prompt 6 – October 15, 2026, 7:00 AM session
-**Prompt:** Explain a positive mean residual; recompute the NAmes mean residual a second way.
-**Purpose:** Independently verify one table value.
-**Codex produced:** [both NAmes values; did they match?]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [ ]
-
-## Prompt 7 – October 15, 2026, 7:00 AM session
-**Prompt:** Plain-language summary paragraph. Only make claims the table supports.
-**Purpose:** Prevent the narrative from claiming causes the analysis didn't test.
-**Codex produced:** [summary paragraph]
-**Accepted / Modified / Rejected:** [ ]
-**Verification:** [ ]
+Workflow Log
+Session: October 22, 2026. See the README for the tool used. Prompt numbers refer to prompts/prompt-history.md. Times are approximate.
+Entry 1 – Prompts 1–2 (October 22, ~7:45 AM)
+Prompt: Shared the assignment and my peer-review comments. Produced: A plan for fixing each gap the reviewer named (log, reflection, README, missing table and chart), plus likely reasons the outputs were missing (never run, not committed, or blocked by .gitignore). Accepted: The plan and the order of fixes. Modified: Nothing. Rejected: Nothing. Rationale: The plan matched the reviewer's comments point for point.
+Entry 2 – Prompts 3–8 (October 22, ~7:50 AM)
+Prompt: Shared my repo link and asked for everything to be filled in. Produced: A check showing the repo was empty, a finished README, and a log template with the prompt text filled in and the outcomes left blank, since no analysis had been run yet. Accepted: README and log template (committed at 7:58 AM). Modified: Nothing at the time. Rejected: Nothing. Rationale: The blanks couldn't be filled until real results existed.
+Entry 3 – Prompt 9 (October 22, ~8:00 AM)
+Prompt: Asked for the log dated October 15 at 7 AM. Produced: The log with that date, plus a note that the README said October 22. Accepted: At first. Rejected (later): The October 15 date. No session happened that day, and the repo history shows it was created October 22. This log uses the real date. Rationale: The log has to match what actually happened.
+Entry 4 – Prompts 10–17 (October 22, ~8:00–8:05 AM)
+Prompt: Asked what a transcript was and whether the CSV was in the repo. Produced: A check of the repo showing it held only README.md and the log, with no CSV. The CSV I had seen was on my computer but never uploaded. Steps for uploading it on the GitHub website. Accepted: The diagnosis and upload steps; I uploaded the CSV at 8:04 AM. Modified: Nothing. Rejected: Nothing. Rationale: Checking the repo directly settled my confusion faster than guessing.
+Entry 5 – Prompts 18–22 (October 22)
+Prompt: Asked for terminal commands to run Codex, then about Codex on the website. Produced: Setup commands. codex returned "command not found," so I got install steps (Node.js, then npm install -g @openai/codex), and an explanation that web Codex can't produce the /export transcript the assignment requires. Accepted: The advice to check with my instructor. Modified: Nothing. Rejected: My own request to generate a transcript and outputs without running an analysis; that would not have been a real record. Rationale: Codex was not installed, so I asked permission to use a different tool.
+Entry 6 – Prompt 23 (October 22)
+Prompt: With permission, asked for the analysis to be completed. Produced: analysis/analysis.py, run on the CSV from my repo. Results: 2,930 rows, 82 columns, no missing values in SalePrice, Gr Liv Area, or Neighborhood; 5 houses over 4,000 sq ft removed (2,925 remain); slope $116.23/sq ft, intercept $6,773, R² = 0.518; 4 neighborhoods excluded for fewer than 20 sales (Blueste, Greens, GrnHill, Landmrk); neighborhood_summary.csv and neighborhood_residuals.png. Verified: The NAmes mean residual was recomputed a second way; both give -$11,845. Modified: The first chart showed negative values as "$-60,000"; the labels were fixed to "-$60,000." My uploaded file was named AmesHousing-1.csv, so the script accepts either name. My review: [After you check the table and chart, note what you accepted or would change.] Rationale: Same question and method as my original plan, run on the real data.
